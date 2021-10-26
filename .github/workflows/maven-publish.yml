@@ -24,7 +24,7 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Maven version 1
-      run: for d in v[0-9] do cd "$d" && mvn -f pom.xml -B package done
+      run: find v* -maxdepth 0 -type d \( ! -name . \) -exec bash -c "cd '{}' && mvn -f pom.xml -B package" \;
 
     - name: Publish to GitHub Packages Apache Maven
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
