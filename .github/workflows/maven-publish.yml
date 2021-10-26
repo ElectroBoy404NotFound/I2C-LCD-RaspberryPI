@@ -25,3 +25,9 @@ jobs:
 
     - name: Build with Maven
       run: find v* -maxdepth 0 -type d \( ! -name . \) -exec bash -c "cd '{}' && mvn clean compile assembly:single && ls ./target" \;
+    - name: auto-publish
+      uses: wangziling100/AutoPublish@v1.2
+      with:
+        scope: '@ElectroBoy404NotFound'
+        strict_error: true
+        root_dir: ./v1
