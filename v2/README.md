@@ -1,5 +1,5 @@
-# V1
-This is version 1 of I2C-LCD-RaspberryPI-Java
+# V2
+This is version 2 of I2C-LCD-RaspberryPI-Java
 
 ## Features added:
 ### setCursor(int row, int col): Sets the cursor position
