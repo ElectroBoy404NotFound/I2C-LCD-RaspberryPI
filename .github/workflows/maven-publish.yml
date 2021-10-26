@@ -25,6 +25,16 @@ jobs:
 
     - name: Build with Maven
       run: find v* -maxdepth 0 -type d \( ! -name . \) -exec bash -c "cd '{}' && mvn clean compile assembly:single && ls ./target" \;
+    - name: Draft release
+      id: draft_release
+      uses: actions/create-release@v1.0.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v$VERSION
+        release_name: Build $VERSION
+        draft: true
+        prerelease: false
     - name: Upload release assets
       uses: actions/upload-release-asset@v1.0.1
       env:
