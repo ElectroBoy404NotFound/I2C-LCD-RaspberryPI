@@ -24,4 +24,4 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Maven
-      run: find v* -maxdepth 0 -type d \( ! -name . \) -exec bash -c "cd '{}' && mvn clean compile assembly:single && echo '{}/*'" \;
+      run: find v* -maxdepth 0 -type d \( ! -name . \) -exec bash -c "cd '{}' && mvn clean compile assembly:single && ls" \;
