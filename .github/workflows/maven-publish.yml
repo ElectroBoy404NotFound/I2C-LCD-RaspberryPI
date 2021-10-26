@@ -27,6 +27,6 @@ jobs:
       run: find v* -maxdepth 0 -type d \( ! -name . \) -exec bash -c "cd '{}' && mvn -f pom.xml -B package" \;
 
     - name: Publish to GitHub Packages Apache Maven
-      run: find v* -maxdepth 0 -type d \( ! -name . \) -exec bash -c "cd '{}' & &mvn deploy -s $GITHUB_WORKSPACE/settings.xml" \;
+      run: find v* -maxdepth 0 -type d \( ! -name . \) -exec bash -c "cd '{}' && mvn --batch-mode deploy" \;
       env:
         GITHUB_TOKEN: ${{ github.token }}
