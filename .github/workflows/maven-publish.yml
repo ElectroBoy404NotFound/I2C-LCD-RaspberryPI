@@ -24,9 +24,9 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Maven version 1
-      run: find v* -type d \( ! -name . \) -exec bash -c "cd '{}' && mvn -f pom.xml -B package" \;
+      run: find v* -maxdepth 0 -type d \( ! -name . \) -exec bash -c "cd '{}' && mvn -f pom.xml -B package" \;
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+      run: find v* -maxdepth 0 -type d \( ! -name . \) -exec bash -c "cd '{}' & &mvn deploy -s $GITHUB_WORKSPACE/settings.xml" \;
       env:
         GITHUB_TOKEN: ${{ github.token }}
