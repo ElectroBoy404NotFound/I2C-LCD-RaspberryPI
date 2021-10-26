@@ -1,7 +1,7 @@
 # V1
 This is version 1 of I2C-LCD-RaspberryPI-Java
 
-## Features:
+## Features added:
 ### lcdInit(int address): Initialize the LCD
 ####     address: The address of the lcd
 ### printString(String str, int line): Print a string on the LCD at a spesific line
