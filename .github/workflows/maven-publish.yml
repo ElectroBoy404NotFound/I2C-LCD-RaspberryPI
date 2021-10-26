@@ -25,9 +25,12 @@ jobs:
 
     - name: Build with Maven
       run: find v* -maxdepth 0 -type d \( ! -name . \) -exec bash -c "cd '{}' && mvn clean compile assembly:single && ls ./target" \;
-    - name: auto-publish
-      uses: wangziling100/AutoPublish@v1.2
+    - name: Upload release assets
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        scope: '@ElectroBoy404NotFound'
-        strict_error: true
-        root_dir: ./v1
+        upload_url: ${{ steps.draft_release.outputs.upload_url }}
+        asset_path: ./*/target/*.jar
+        asset_name: ./*/target/*.jar
+        asset_content_type: application/java-archive
