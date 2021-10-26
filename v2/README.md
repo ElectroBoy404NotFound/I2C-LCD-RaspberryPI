@@ -5,7 +5,7 @@ This is version 2 of I2C-LCD-RaspberryPI-Java
 ### setCursor(int row, int col): Sets the cursor position
 ####     row: Cursor row pos
 ####     col: Cursor col pos
-### printString(String str, int line): Print a string on the LCD at the line set using LCD.setCursor(int row, int col)
+### printString(String str): Print a string on the LCD at a line and column set using LCD.setCursor(int row, int col)
 ####     str: the string
 
 ## Features removed:
