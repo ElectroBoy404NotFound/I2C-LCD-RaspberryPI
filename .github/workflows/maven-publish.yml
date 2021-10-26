@@ -23,10 +23,5 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-    - name: Build with Maven version 1
-      run: find v* -maxdepth 0 -type d \( ! -name . \) -exec bash -c "cd '{}' && mvn -f pom.xml -B package" \;
-
-    - name: Publish to GitHub Packages Apache Maven
-      run: find v* -maxdepth 0 -type d \( ! -name . \) -exec bash -c "cd '{}' && mvn --batch-mode deploy" \;
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
+    - name: Build with Maven
+      run: find v* -maxdepth 0 -type d \( ! -name . \) -exec bash -c "cd '{}' && mvn clean compile assembly:single && echo '{}'" \;
