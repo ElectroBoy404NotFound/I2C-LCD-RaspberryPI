@@ -24,7 +24,7 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Maven version 1
-      run: mvn -B package --file v1/pom.xml
+      run: mvn -f /home/runner/work/I2C-LCD-RaspberryPI/I2C-LCD-RaspberryPI -B package
 
     - name: Publish to GitHub Packages Apache Maven
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
