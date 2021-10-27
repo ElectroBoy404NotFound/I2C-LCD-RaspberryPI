@@ -1,5 +1,5 @@
 import com.w3spaces.electroboy.rpiI2CLCD.LCD;
-ERROR
+
 public class Test {
 	public static void main(String[] args) {
 		LCD.lcdInit(0x27);
